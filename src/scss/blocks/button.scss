@@ -1,0 +1,47 @@
+@use '../utils';
+@use '../typography';
+
+.button {
+  height: 40px;
+  width: max-content;
+
+  &--menu {
+    width: 100%;
+    max-width: 375px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid utils.$c_black;
+    height: 100%;
+    padding-inline: 28.5px;
+    @extend %button-text;
+    color: utils.$c_black;
+    text-transform: uppercase;
+    transition-property: background-color, color;
+    transition-duration: utils.$amin-time;
+
+    &:hover {
+      background-color: utils.$c_black;
+      color: utils.$c_white;
+    }
+
+    &--menu {
+      border-color: utils.$c_white;
+      @extend %menu-link-text;
+      color: utils.$c_white;
+    }
+
+    &--white {
+      border-color: utils.$c_white;
+      color: utils.$c_white;
+
+      &:hover {
+        background-color: utils.$c_white;
+        color: utils.$c_dark-blue;
+      }
+    }
+  }
+}

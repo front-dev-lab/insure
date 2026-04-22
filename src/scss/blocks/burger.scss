@@ -1,0 +1,57 @@
+@use '../utils';
+
+$padding-block: 10px;
+$padding-inline: 8px;
+
+%line {
+  display: block;
+  height: 1.5px;
+  background-color: utils.$c_black;
+}
+
+.burger {
+  position: relative;
+  border: 1.5px solid utils.$c_black;
+  width: 32px;
+  height: 32px;
+  padding-inline: $padding-inline;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: $padding-inline;
+    right: $padding-inline;
+    @extend %line;
+    transform-origin: transform;
+    transition-duration: utils.$amin-time;
+  }
+
+  &::before {
+    top: $padding-block;
+  }
+
+  &::after {
+    bottom: $padding-block;
+  }
+
+  &--active {
+    &::before {
+      transform: translateY(4.5px) rotate(-45deg);
+    }
+
+    &::after {
+      transform: translateY(-4.5px) rotate(45deg);
+    }
+  }
+
+  &__line {
+    @extend %line;
+    transition-duration: scale;
+    transition-duration: utils.$amin-time;
+
+    &--active {
+      scale: 0;
+    }
+  }
+}

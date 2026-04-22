@@ -1,0 +1,48 @@
+@use 'utils';
+
+%main-text {
+  font-family: Karla, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0px;
+
+}
+
+%h1 {
+  font-family: "DM Serif Display", "Times New Roman", Times, Baskerville, Georgia, serif;
+  @include utils.adaptive-value('font-size', 72, 48);
+  font-weight: 400;
+  @include utils.adaptive-value('line-height', 64, 48);
+  @include utils.adaptive-value('letter-spacing', -1, -0.67);
+}
+
+%h2 {
+  font-family: "DM Serif Display", "Times New Roman", Times, Baskerville, Georgia, serif;
+  @include utils.adaptive-value('font-size', 56, 40);
+  font-weight: 400;
+  line-height: 100%;
+  @include utils.adaptive-value('letter-spacing', -0.78, -0.56);
+}
+
+%h3 {
+  font-family: "DM Serif Display", "Times New Roman", Times, Baskerville, Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.39px;
+}
+
+%menu-link-text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 1.36px;
+}
+
+%button-text {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+}

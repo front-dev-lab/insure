@@ -1,0 +1,41 @@
+@use '../utils';
+@use '../typography';
+
+.how-we-work {
+  color: utils.$c_white;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    @include utils.adaptive-value('padding-block', 69, 72);
+    @include utils.adaptive-value('padding-inline', 81, 24);
+    background-color: utils.$c_dark-blue;
+    background-image: url(/img/svg/bg-pattern-how-we-work-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+
+    @include utils.onTablet {
+      grid-template-columns: 1fr;
+      row-gap: 40px;
+      background-image: url(/img/svg/bg-pattern-how-we-work-mobile.svg)
+    }
+  }
+
+  &__title {
+    @extend %h2;
+
+    @include utils.onTablet {
+      text-align: center;
+    }
+  }
+
+  &__button {
+    justify-self: flex-end;
+
+    @include utils.onTablet {
+      justify-self: center;
+    }
+  }
+}

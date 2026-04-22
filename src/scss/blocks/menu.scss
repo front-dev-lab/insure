@@ -1,0 +1,17 @@
+@use '../utils';
+
+.menu {
+  height: 100vh;
+  padding-top: utils.$header-h + 40px;
+  background-color: utils.$c_black;
+  background-image: url(/img/svg/bg-pattern-mobile-nav.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+
+  &__content {
+    display: grid;
+    justify-items: center;
+    row-gap: 24px;
+  }
+}

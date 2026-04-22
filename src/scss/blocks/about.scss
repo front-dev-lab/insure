@@ -1,0 +1,47 @@
+@use '../utils';
+@use '../typography';
+
+.about {
+  &__content {
+    display: grid;
+    @include utils.adaptive-value('row-gap', 96, 80);
+  }
+
+  &__title {
+    position: relative;
+    @include utils.adaptive-value('padding-top', 63, 40);
+    @extend %h2;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 150px;
+      height: 1px;
+      background-color: utils.$c_pink;
+    }
+
+    @include utils.onTablet {
+      text-align: center;
+
+      &::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 30px;
+
+    @include utils.onTablet {
+      grid-auto-flow: row;
+      row-gap: 56px;
+      justify-content: center;
+    }
+  }
+}

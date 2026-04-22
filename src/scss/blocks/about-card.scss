@@ -1,0 +1,53 @@
+@use '../utils';
+@use '../typography';
+
+.about-card {
+  @include utils.onTablet {
+    display: grid;
+  }
+
+  &__icon {
+    width: 86px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 32px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &--thunder {
+      background-image: url(/img/svg/icon-snappy-process.svg);
+    }
+
+    &--dollar {
+      background-image: url(/img/svg/icon-affordable-prices.svg);
+    }
+
+    &--person {
+      background-image: url(/img/svg/icon-people-first.svg);
+    }
+
+    @include utils.onTablet {
+      justify-self: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    @extend %h3;
+
+    @include utils.onTablet {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    color: utils.$c_gray;
+
+    @include utils.onTablet {
+      max-width: 450px;
+      text-align: center;
+    }
+  }
+}

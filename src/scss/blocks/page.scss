@@ -1,0 +1,51 @@
+@use '../utils';
+@use '../typography';
+
+$max-row-gap: 150;
+$min-row-gap: 140;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @extend %main-text;
+
+  &__content {
+    flex-grow: 1;
+    display: grid;
+    @include utils.adaptive-value('row-gap', $max-row-gap, $min-row-gap);
+    @include utils.adaptive-value('margin-bottom', $max-row-gap, $min-row-gap);
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 2;
+    transform: translateX(100%);
+    transition-property: transform;
+    transition-duration: utils.$amin-time;
+
+    @include utils.onTablet {
+      display: block;
+    }
+
+    &--active {
+      transform: translateX(0);
+    }
+
+    &--no-transition-duration {
+      transition-duration: 0ms;
+    }
+  }
+
+  &__hero {
+    @include utils.adaptive-value('margin-bottom', 144, -430);
+
+    @include utils.onTablet {
+      margin-bottom: 0;
+    }
+  }
+}
